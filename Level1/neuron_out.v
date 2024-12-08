@@ -1,23 +1,16 @@
 module neuron_out(
-    // Sinyal input dari hidden layer
-    input wire signed [19:0] a2_1, a2_2,
+    input wire signed [19:0] N1_1, N1_2, // Inputs from both hidden neurons
+    input wire signed [19:0] Wn_1, Wn_2, // Corresponding weights for each input
+    input wire signed [19:0] B_neuron, // Bias for output neuron
 
-    // Weight dan bias
-    input wire signed [19:0] weight3_1, weight3_2,
-
-    input wire signed [19:0] bias3,
-
-    // Sinyal output
-    output wire signed [19:0] z3
+    output wire signed [19:0] N2_out
 );
-
-    // Intermediate variabel untuk menampung perhitungan 
-    wire signed [39:0] z3_1; wire signed [39:0] z3_2;
+ 
+    wire signed [39:0] temp_mult1, temp_mult2;
     
-    // Perkalian masing-masing input dan weight yang bersesuaian
-    assign z3_1 = (weight3_1 * a2_1) >>> 15; assign z3_2 = (weight3_2 * a2_2) >>> 15;
+    assign temp_mult1 = (N2_2 * Wn_1) >>> 15;
+    assign temp_mult2 = (N1_2 * Wn_2) >>> 15;
     
-    // Sinyal output
-    assign z3 = z3_1[19:0] + z3_2[19:0] + bias3;
+    assign N2_out = temp_mult1[19:0] + temp_mult2[19:0] + B_neuron;
 
 endmodule
