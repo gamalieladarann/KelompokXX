@@ -41,12 +41,12 @@ module top_level (
 
     // Weight dan Bias neuron output
     parameter signed [19:0] weight3_1[8:0] = {
-        20'sh0A1C4; 20'sh2D0AB; 20'sh09DCB; 20'sh2CAC8; 20'shD656D;
-        20'sh2D5EF; 20'sh0A82D; 20'sh2CE81; 20'sh096AE
+        20'sh0A1C4, 20'sh2D0AB, 20'sh09DCB, 20'sh2CAC8, 20'shD656D,
+        20'sh2D5EF, 20'sh0A82D, 20'sh2CE81, 20'sh096AE
     };
     parameter signed [19:0] weight3_2[8:0] = {
-        20'sh165EE; 20'shF1FBB; 20'sh15212; 20'shF12E7; 20'sh15EA0;
-        20'shF2E17; 20'sh171F5; 20'shF197E; 20'sh14663
+        20'sh165EE, 20'shF1FBB, 20'sh15212, 20'shF12E7, 20'sh15EA0,
+        20'shF2E17, 20'sh171F5, 20'shF197E, 20'sh14663
     };
     parameter signed [19:0] bias3[8:0] = {
         20'sh21DD0, 20'shFDA10, 20'sh222D7, 20'shFDCBE, 20'sh00CBD,
