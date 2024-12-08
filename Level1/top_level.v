@@ -117,15 +117,13 @@ module top_level (
     // Reparameterization trick (hidden neuron)
     neuron_hidden hidden1 (
         .mean(C_out1),
-        .softplus(D_out1),
-        .epsilon(epsilon),
+        .dev(D_out1),
         .a2(N_hidden_out1)
     );
 
     neuron_hidden hidden2 (
         .mean(C_out2),
-        .softplus(D_out2),
-        .epsilon(epsilon),
+        .dev(D_out2),
         .a2(N_hidden_out2)
     );
 
