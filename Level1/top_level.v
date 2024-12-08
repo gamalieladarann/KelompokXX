@@ -37,6 +37,18 @@ module top_level (
     parameter signed [19:0] bias2var[1:0] = {
         20'shF011A, 20'shEE9EF
     };
+    parameter signed [19:0] weight3_1[8:0] = {
+        20'sh0A1C4; 20'sh2D0AB; 20'sh09DCB; 20'sh2CAC8; 20'shD656D;
+        20'sh2D5EF; 20'sh0A82D; 20'sh2CE81; 20'sh096AE
+    };
+    parameter signed [19:0] weight3_2[8:0] = {
+        20'sh165EE; 20'shF1FBB; 20'sh15212; 20'shF12E7; 20'sh15EA0;
+        20'shF2E17; 20'sh171F5; 20'shF197E; 20'sh14663
+    };
+    parameter signed [19:0] bias3[8:0] = {
+        20'sh21DD0, 20'shFDA10, 20'sh222D7, 20'shFDCBE, 20'sh00CBD,
+        20'shFD764, 20'sh21ADF, 20'shFDB31, 20'sh225A6
+    };
 
     // Mean module instances
     mean mean1 (
@@ -125,9 +137,9 @@ module top_level (
             neuron_out n_out (
                 .a2_1(N_hidden_out1),
                 .a2_2(N_hidden_out2),
-                .weight3_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-                .weight3_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-                .bias3(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
+                .weight3_1(weight3_1[i]), 
+                .weight3_2(weight3_2[i]), 
+                .bias3(bias3[i]),
                 .z3(N_out[i])
             );
 
