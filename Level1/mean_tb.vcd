@@ -1,0 +1,157 @@
+$date
+	Sun Dec 08 21:04:34 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module mean_tb $end
+$var wire 20 ! C_out2 [19:0] $end
+$var wire 20 " C_out1 [19:0] $end
+$var reg 20 # B_mean1 [19:0] $end
+$var reg 20 $ B_mean2 [19:0] $end
+$var reg 20 % Wm_01 [19:0] $end
+$var reg 20 & Wm_02 [19:0] $end
+$var reg 20 ' Wm_11 [19:0] $end
+$var reg 20 ( Wm_12 [19:0] $end
+$var reg 20 ) Wm_21 [19:0] $end
+$var reg 20 * Wm_22 [19:0] $end
+$var reg 20 + Wm_31 [19:0] $end
+$var reg 20 , Wm_32 [19:0] $end
+$var reg 20 - Wm_41 [19:0] $end
+$var reg 20 . Wm_42 [19:0] $end
+$var reg 20 / Wm_51 [19:0] $end
+$var reg 20 0 Wm_52 [19:0] $end
+$var reg 20 1 Wm_61 [19:0] $end
+$var reg 20 2 Wm_62 [19:0] $end
+$var reg 20 3 Wm_71 [19:0] $end
+$var reg 20 4 Wm_72 [19:0] $end
+$var reg 20 5 Wm_81 [19:0] $end
+$var reg 20 6 Wm_82 [19:0] $end
+$var reg 1 7 X_0 $end
+$var reg 1 8 X_1 $end
+$var reg 1 9 X_2 $end
+$var reg 1 : X_3 $end
+$var reg 1 ; X_4 $end
+$var reg 1 < X_5 $end
+$var reg 1 = X_6 $end
+$var reg 1 > X_7 $end
+$var reg 1 ? X_8 $end
+$scope module C1 $end
+$var wire 20 @ B_mean [19:0] $end
+$var wire 20 A Wm_0 [19:0] $end
+$var wire 20 B Wm_1 [19:0] $end
+$var wire 20 C Wm_2 [19:0] $end
+$var wire 20 D Wm_3 [19:0] $end
+$var wire 20 E Wm_4 [19:0] $end
+$var wire 20 F Wm_5 [19:0] $end
+$var wire 20 G Wm_6 [19:0] $end
+$var wire 20 H Wm_7 [19:0] $end
+$var wire 20 I Wm_8 [19:0] $end
+$var wire 1 7 X_0 $end
+$var wire 1 8 X_1 $end
+$var wire 1 9 X_2 $end
+$var wire 1 : X_3 $end
+$var wire 1 ; X_4 $end
+$var wire 1 < X_5 $end
+$var wire 1 = X_6 $end
+$var wire 1 > X_7 $end
+$var wire 1 ? X_8 $end
+$var wire 20 J C_out [19:0] $end
+$upscope $end
+$scope module C2 $end
+$var wire 20 K B_mean [19:0] $end
+$var wire 20 L Wm_0 [19:0] $end
+$var wire 20 M Wm_1 [19:0] $end
+$var wire 20 N Wm_2 [19:0] $end
+$var wire 20 O Wm_3 [19:0] $end
+$var wire 20 P Wm_4 [19:0] $end
+$var wire 20 Q Wm_5 [19:0] $end
+$var wire 20 R Wm_6 [19:0] $end
+$var wire 20 S Wm_7 [19:0] $end
+$var wire 20 T Wm_8 [19:0] $end
+$var wire 1 7 X_0 $end
+$var wire 1 8 X_1 $end
+$var wire 1 9 X_2 $end
+$var wire 1 : X_3 $end
+$var wire 1 ; X_4 $end
+$var wire 1 < X_5 $end
+$var wire 1 = X_6 $end
+$var wire 1 > X_7 $end
+$var wire 1 ? X_8 $end
+$var wire 20 U C_out [19:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11111110111101111100 U
+b101000011110010 T
+b11111100001101011110 S
+b11111010010000 R
+b1110101 Q
+b11111111111101001001 P
+b1101111 O
+b11111111111110011000 N
+b1111100 M
+b11111111111110010001 L
+b11111001110000010011 K
+b101011011110101 J
+b11000100001001 I
+b1001101111110111 H
+b11111110100000101110 G
+b11111111111110001011 F
+b1001110 E
+b11111111111111011001 D
+b11111111111111110011 C
+b11111111111110100101 B
+b11111111111111110011 A
+b11111010001011011000 @
+1?
+1>
+1=
+1<
+0;
+1:
+19
+18
+17
+b101000011110010 6
+b11000100001001 5
+b11111100001101011110 4
+b1001101111110111 3
+b11111010010000 2
+b11111110100000101110 1
+b1110101 0
+b11111111111110001011 /
+b11111111111101001001 .
+b1001110 -
+b1101111 ,
+b11111111111111011001 +
+b11111111111110011000 *
+b11111111111111110011 )
+b1111100 (
+b11111111111110100101 '
+b11111111111110010001 &
+b11111111111111110011 %
+b11111001110000010011 $
+b11111010001011011000 #
+b101011011110101 "
+b11111110111101111100 !
+$end
+#7
+b11111011110001000011 "
+b11111011110001000011 J
+b10101000000111 !
+b10101000000111 U
+0>
+0<
+1;
+0:
+08
+#14
