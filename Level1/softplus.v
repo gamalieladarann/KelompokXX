@@ -1,4 +1,4 @@
-module softplus_8grad(
+module softplus(
     input wire signed [19:0] V_out, // Input from var module
 
     output wire signed [19:0] SP_out
