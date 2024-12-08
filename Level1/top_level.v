@@ -14,6 +14,8 @@ module top_level (
     wire signed [19:0] N_hidden_out1, N_hidden_out2;
     // Output neuron output layer
     wire signed [19:0] N_out[8:0];
+    // Output setelah sigmoid
+    wire signed [19:0] sigmoid_out[8:0];
 
     // Konstanta Weight dan Bias untuk Mean dan Variance
     parameter signed [19:0] weight2mean[17:0] = {
@@ -80,129 +82,63 @@ module top_level (
 
     // Softplus instances
     softplus sp1 (
-        .in(V_out1),
-        .out(S_out1)
+        .x_in(V_out1),
+        .y_out(S_out1)
     );
 
     softplus sp2 (
-        .in(V_out2),
-        .out(S_out2)
+        .x_in(V_out2),
+        .y_out(S_out2)
     );
 
     // Dev instances
     dev dev1 (
-        .C_in(C_out1),
-        .V_in(S_out1),
+        .V_out(S_out1),
         .D_out(D_out1)
     );
 
     dev dev2 (
-        .C_in(C_out2),
-        .V_in(S_out2),
+        .V_out(S_out2),
         .D_out(D_out2)
     );
 
-    // Hidden neuron instances
+    // Reparameterization trick (hidden neuron)
     neuron_hidden hidden1 (
-        .in(D_out1),
-        .out(N_hidden_out1)
+        .mean(C_out1),
+        .softplus(D_out1),
+        .epsilon(epsilon),
+        .a2(N_hidden_out1)
     );
 
     neuron_hidden hidden2 (
-        .in(D_out2),
-        .out(N_hidden_out2)
+        .mean(C_out2),
+        .softplus(D_out2),
+        .epsilon(epsilon),
+        .a2(N_hidden_out2)
     );
+
 
     // Output neuron instances
-    neuron_output n_out0 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[0])
-    );
+    genvar i;
+    generate
+        for (i = 0; i < 9; i = i + 1) begin : output_loop
+            neuron_out n_out (
+                .a2_1(N_hidden_out1),
+                .a2_2(N_hidden_out2),
+                .weight3_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
+                .weight3_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
+                .bias3(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
+                .z3(N_out[i])
+            );
 
-    neuron_output n_out1 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[1])
-    );
+            // Sigmoid Activation
+            sigmoid sig (
+                .in(N_out[i]),
+                .out(sigmoid_out[i])
+            );
 
-    neuron_output n_out2 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[2])
-    );
-
-    neuron_output n_out3 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[3])
-    );
-
-    neuron_output n_out4 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[4])
-    );
-
-    neuron_output n_out5 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[5])
-    );
-
-    neuron_output n_out6 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[6])
-    );
-
-    neuron_output n_out7 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[7])
-    );
-
-    neuron_output n_out8 (
-        .in1(N_hidden_out1),
-        .in2(N_hidden_out2),
-        .weight_1(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .weight_2(20'sh00000), // Ganti dengan bobot sesuai kebutuhan
-        .bias(20'sh00000),     // Ganti dengan bias sesuai kebutuhan
-        .out(N_out[8])
-    );
-
-    // Assign final outputs
-    assign outputs[0] = N_out[0];
-    assign outputs[1] = N_out[1];
-    assign outputs[2] = N_out[2];
-    assign outputs[3] = N_out[3];
-    assign outputs[4] = N_out[4];
-    assign outputs[5] = N_out[5];
-    assign outputs[6] = N_out[6];
-    assign outputs[7] = N_out[7];
-    assign outputs[8] = N_out[8];
+            // Assign final output
+            assign outputs[i] = sigmoid_out[i];
+        end
+    endgenerate
 endmodule
