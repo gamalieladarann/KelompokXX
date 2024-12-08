@@ -1,9 +1,10 @@
 module neuron_hidden(
-    input wire [19:0] mean,    // Mean pertama
-    input wire [19:0] dev,
+    input signed wire [19:0] C_out, // Input from mean module
+    input signed wire [19:0] D_out, // Input from dev module
 
-    output wire [19:0] a2  // Latent variable pertama
+    output signed wire [19:0] n1_out
 );
-    // Reparameterization trick: a2 = mean + (softplus * epsilon)
-    assign a2 = mean + dev;
+
+    assign n1_out = C_out + D_out;
+
 endmodule
