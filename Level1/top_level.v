@@ -17,7 +17,7 @@ module top_level (
     // Output setelah sigmoid
     wire signed [19:0] sigmoid_out[8:0];
 
-    // Konstanta Weight dan Bias untuk Mean dan Variance
+    // Weight dan Bias Mean
     parameter signed [19:0] weight2mean[17:0] = {
         20'shFFFF3, 20'shFFFA5, 20'shFFFF3, 20'shFFFD9, 20'sh0004E, 
         20'shFFF8B, 20'shFE82E, 20'sh09BF7, 20'sh03109,
@@ -27,7 +27,8 @@ module top_level (
     parameter signed [19:0] bias2mean[1:0] = {
         20'shFA2D8, 20'shF9C13
     };
-
+    
+    // Weight dan Bias Variance
     parameter signed [19:0] weight2var[17:0] = {
         20'shF8A86, 20'shFEDA2, 20'shF9C05, 20'sh00951, 20'shFCB0C,
         20'shFB4E1, 20'shF6A9A, 20'shFD997, 20'shF49BB,
@@ -37,6 +38,8 @@ module top_level (
     parameter signed [19:0] bias2var[1:0] = {
         20'shF011A, 20'shEE9EF
     };
+
+    // Weight dan Bias neuron output
     parameter signed [19:0] weight3_1[8:0] = {
         20'sh0A1C4; 20'sh2D0AB; 20'sh09DCB; 20'sh2CAC8; 20'shD656D;
         20'sh2D5EF; 20'sh0A82D; 20'sh2CE81; 20'sh096AE
