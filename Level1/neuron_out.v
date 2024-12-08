@@ -8,7 +8,7 @@ module neuron_out(
  
     wire signed [39:0] temp_mult1, temp_mult2;
     
-    assign temp_mult1 = (N2_2 * Wn_1) >>> 15;
+    assign temp_mult1 = (N1_1 * Wn_1) >>> 15;
     assign temp_mult2 = (N1_2 * Wn_2) >>> 15;
     
     assign N2_out = temp_mult1[19:0] + temp_mult2[19:0] + B_neuron;
