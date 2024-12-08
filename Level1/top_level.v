@@ -34,15 +34,15 @@ module top_level (
     };
 
     // Weight dan Bias neuron output
-    parameter signed [19:0] weight3_1[8:0] = {
+    parameter signed [19:0] Wn_1[8:0] = {
         20'sh0A1C4, 20'sh2D0AB, 20'sh09DCB, 20'sh2CAC8, 20'shD656D,
         20'sh2D5EF, 20'sh0A82D, 20'sh2CE81, 20'sh096AE
     };
-    parameter signed [19:0] weight3_2[8:0] = {
+    parameter signed [19:0] Wn_2[8:0] = {
         20'sh165EE, 20'shF1FBB, 20'sh15212, 20'shF12E7, 20'sh15EA0,
         20'shF2E17, 20'sh171F5, 20'shF197E, 20'sh14663
     };
-    parameter signed [19:0] bias3[8:0] = {
+    parameter signed [19:0] B_neuron[8:0] = {
         20'sh21DD0, 20'shFDA10, 20'sh222D7, 20'shFDCBE, 20'sh00CBD,
         20'shFD764, 20'sh21ADF, 20'shFDB31, 20'sh225A6
     };
@@ -55,9 +55,9 @@ module top_level (
     // Output dev
     wire signed [19:0] D_out1, D_out2;
     // Output neuron hidden
-    wire signed [19:0] N_hidden_out1, N_hidden_out2;
+    wire signed [19:0] N1_out, N2_out;
     // Output neuron output layer
-    wire signed [19:0] N_out[8:0];
+    wire signed [19:0] N2_out[8:0];
     // Output setelah sigmoid
     wire signed [19:0] sigmoid_out[8:0];
 
@@ -130,13 +130,13 @@ module top_level (
     neuron_hidden hidden1 (
         .C_out(C_out1),
         .D_out(D_out1),
-        .N1_out(N_hidden_out1)
+        .N1_out(N1_out)
     );
 
     neuron_hidden hidden2 (
         .C_out(C_out2),
         .D_out(D_out2),
-        .N1_out(N_hidden_out2)
+        .N1_out(N2_out)
     );
 
 
@@ -145,12 +145,12 @@ module top_level (
     generate
         for (i = 0; i < 9; i = i + 1) begin : output_loop
             neuron_out n_out (
-                .N1_1(N_hidden_out1),
-                .N2_2(N_hidden_out2),
-                .Wn_1(weight3_1[i]), 
-                .Wn_2(weight3_2[i]), 
-                .B_neuron(bias3[i]),
-                .N2_out(N_out[i])
+                .N1_1(N1_out),
+                .N2_2(N2_out),
+                .Wn_1(Wn_1[i]), 
+                .Wn_2(Wn_2[i]), 
+                .B_neuron(B_neuron[i]),
+                .N2_out(N2_out[i])
             );
 
             // Sigmoid Activation
