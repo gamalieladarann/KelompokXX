@@ -1,44 +1,58 @@
-`timescale 1ns / 1ps
 `include "top_level.v"
 
-
 module top_level_tb;
-    reg [8:0] X; // Input pixel
-    wire signed [19:0] output_0, output_1, output_2;
-    wire signed [19:0] output_3, output_4, output_5;
-    wire signed [19:0] output_6, output_7, output_8;
-    
-    top_level uut (
+
+    reg [8:0] X;
+
+    wire signed [19:0] Y_0, Y_1, Y_2, Y_3, Y_4, Y_5, Y_6, Y_7, Y_8;
+
+    top_level G0(
         .X(X),
-        .output_0(output_0),
-        .output_1(output_1),
-        .output_2(output_2),
-        .output_3(output_3),
-        .output_4(output_4),
-        .output_5(output_5),
-        .output_6(output_6),
-        .output_7(output_7),
-        .output_8(output_8)
+
+        .Y_0(Y_0),
+        .Y_1(Y_1),
+        .Y_2(Y_2),
+        .Y_3(Y_3),
+        .Y_4(Y_4),
+        .Y_5(Y_5),
+        .Y_6(Y_6),
+        .Y_7(Y_7),
+        .Y_8(Y_8)
     );
 
-    // Testbench 
     initial begin
-        // GTKWave dump
         $dumpfile("top_level_tb.vcd");
         $dumpvars(0, top_level_tb);
 
+        X = 9'b111101111;
+        #7;
+        X = 9'b011101111;
+        #7;
+        X = 9'b101101111;
+        #7;
+        X = 9'b110101111;
+        #7;
+        X = 9'b111001111;
+        #7;
+        X = 9'b011111111;
+        #7;
+        X = 9'b111100111;
+        #7;
 
-        X = 9'b101010101; 
-        #100;
-        X = 9'b001010100; 
-        #100;
-        $finish;
-    end
-
-    initial begin
-        $monitor("Time=%0t X=%b -> Output_0=%d, Output_1=%d, Output_2=%d, Output_3=%d, Output_4=%d, Output_5=%d, Output_6=%d, Output_7=%d, Output_8=%d",
-                 $time, X, output_0, output_1, output_2, output_3, output_4, output_5, output_6, output_7, output_8);
+        X = 9'b101010101;
+        #7;
+        X = 9'b001010101;
+        #7;
+        X = 9'b111010101;
+        #7;
+        X = 9'b100010101;
+        #7;
+        X = 9'b101110101;
+        #7;
+        X = 9'b101000101;
+        #7;
+        X = 9'b101011101;
+        #7;
     end
 
 endmodule
-
