@@ -1,0 +1,227 @@
+$date
+	Sun Dec 08 02:15:51 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module neuron_out_tb $end
+$var wire 20 ! a3_9 [19:0] $end
+$var wire 20 " a3_8 [19:0] $end
+$var wire 20 # a3_7 [19:0] $end
+$var wire 20 $ a3_6 [19:0] $end
+$var wire 20 % a3_5 [19:0] $end
+$var wire 20 & a3_4 [19:0] $end
+$var wire 20 ' a3_3 [19:0] $end
+$var wire 20 ( a3_2 [19:0] $end
+$var wire 20 ) a3_1 [19:0] $end
+$var reg 20 * a2_1 [19:0] $end
+$var reg 20 + a2_2 [19:0] $end
+$scope module dut $end
+$var wire 20 , a2_1 [19:0] $end
+$var wire 20 - a2_2 [19:0] $end
+$var wire 40 . z3_92 [39:0] $end
+$var wire 40 / z3_91 [39:0] $end
+$var wire 20 0 z3_9 [19:0] $end
+$var wire 40 1 z3_82 [39:0] $end
+$var wire 40 2 z3_81 [39:0] $end
+$var wire 20 3 z3_8 [19:0] $end
+$var wire 40 4 z3_72 [39:0] $end
+$var wire 40 5 z3_71 [39:0] $end
+$var wire 20 6 z3_7 [19:0] $end
+$var wire 40 7 z3_62 [39:0] $end
+$var wire 40 8 z3_61 [39:0] $end
+$var wire 20 9 z3_6 [19:0] $end
+$var wire 40 : z3_52 [39:0] $end
+$var wire 40 ; z3_51 [39:0] $end
+$var wire 20 < z3_5 [19:0] $end
+$var wire 40 = z3_42 [39:0] $end
+$var wire 40 > z3_41 [39:0] $end
+$var wire 20 ? z3_4 [19:0] $end
+$var wire 40 @ z3_32 [39:0] $end
+$var wire 40 A z3_31 [39:0] $end
+$var wire 20 B z3_3 [19:0] $end
+$var wire 40 C z3_22 [39:0] $end
+$var wire 40 D z3_21 [39:0] $end
+$var wire 20 E z3_2 [19:0] $end
+$var wire 40 F z3_12 [39:0] $end
+$var wire 40 G z3_11 [39:0] $end
+$var wire 20 H z3_1 [19:0] $end
+$var wire 20 I a3_9 [19:0] $end
+$var wire 20 J a3_8 [19:0] $end
+$var wire 20 K a3_7 [19:0] $end
+$var wire 20 L a3_6 [19:0] $end
+$var wire 20 M a3_5 [19:0] $end
+$var wire 20 N a3_4 [19:0] $end
+$var wire 20 O a3_3 [19:0] $end
+$var wire 20 P a3_2 [19:0] $end
+$var wire 20 Q a3_1 [19:0] $end
+$var parameter 20 R bias3_1 $end
+$var parameter 20 S bias3_2 $end
+$var parameter 20 T bias3_3 $end
+$var parameter 20 U bias3_4 $end
+$var parameter 20 V bias3_5 $end
+$var parameter 20 W bias3_6 $end
+$var parameter 20 X bias3_7 $end
+$var parameter 20 Y bias3_8 $end
+$var parameter 20 Z bias3_9 $end
+$var parameter 20 [ weight3_11 $end
+$var parameter 20 \ weight3_12 $end
+$var parameter 20 ] weight3_21 $end
+$var parameter 20 ^ weight3_22 $end
+$var parameter 20 _ weight3_31 $end
+$var parameter 20 ` weight3_32 $end
+$var parameter 20 a weight3_41 $end
+$var parameter 20 b weight3_42 $end
+$var parameter 20 c weight3_51 $end
+$var parameter 20 d weight3_52 $end
+$var parameter 20 e weight3_61 $end
+$var parameter 20 f weight3_62 $end
+$var parameter 20 g weight3_71 $end
+$var parameter 20 h weight3_72 $end
+$var parameter 20 i weight3_81 $end
+$var parameter 20 j weight3_82 $end
+$var parameter 20 k weight3_91 $end
+$var parameter 20 l weight3_92 $end
+$scope module n1 $end
+$var wire 20 m x_in [19:0] $end
+$var wire 20 n y_out [19:0] $end
+$upscope $end
+$scope module n2 $end
+$var wire 20 o x_in [19:0] $end
+$var wire 20 p y_out [19:0] $end
+$upscope $end
+$scope module n3 $end
+$var wire 20 q x_in [19:0] $end
+$var wire 20 r y_out [19:0] $end
+$upscope $end
+$scope module n4 $end
+$var wire 20 s x_in [19:0] $end
+$var wire 20 t y_out [19:0] $end
+$upscope $end
+$scope module n5 $end
+$var wire 20 u x_in [19:0] $end
+$var wire 20 v y_out [19:0] $end
+$upscope $end
+$scope module n6 $end
+$var wire 20 w x_in [19:0] $end
+$var wire 20 x y_out [19:0] $end
+$upscope $end
+$scope module n7 $end
+$var wire 20 y x_in [19:0] $end
+$var wire 20 z y_out [19:0] $end
+$upscope $end
+$scope module n8 $end
+$var wire 20 { x_in [19:0] $end
+$var wire 20 | y_out [19:0] $end
+$upscope $end
+$scope module n9 $end
+$var wire 20 } x_in [19:0] $end
+$var wire 20 ~ y_out [19:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10100011001100011 l
+b1001011010101110 k
+b11110001100101111110 j
+b101100111010000001 i
+b10111000111110101 h
+b1010100000101101 g
+b11110010111000010111 f
+b101101010111101111 e
+b10101111010100000 d
+b11010110010101101101 c
+b11110001001011100111 b
+b101100101011001000 a
+b10101001000010010 `
+b1001110111001011 _
+b11110001111110111011 ^
+b101101000010101011 ]
+b10110010111101110 \
+b1010000111000100 [
+b100010010110100110 Z
+b11111101101100110001 Y
+b100001101011011111 X
+b11111101011101100100 W
+b110010111101 V
+b11111101110010111110 U
+b100010001011010111 T
+b11111101101000010000 S
+b100001110111010000 R
+$end
+#0
+$dumpvars
+b111111100000101 ~
+b100110000010100101 }
+b111101111011101 |
+b11111101110101111 {
+b111111011011111 z
+b100101101111100010 y
+b111101111010001 x
+b11111101000100001 w
+b1111111011 v
+b11011111111101110010 u
+b111101111011100 t
+b11111101110010000 s
+b111111100001001 r
+b100110000100101011 q
+b111101111011001 p
+b11111101100101101 o
+b111111011100000 n
+b100101110000001010 m
+b111111011100000 Q
+b111101111011001 P
+b111111100001001 O
+b111101111011100 N
+b1111111011 M
+b111101111010001 L
+b111111011011111 K
+b111101111011101 J
+b111111100000101 I
+b100101110000001010 H
+b111001011110010 G
+b1111111111111111111111111100101101001000 F
+b11111101100101101 E
+b100000000000010110 D
+b10000100000111 C
+b100110000100101011 B
+b111000000011111 A
+b1111111111111111111111111100111000110101 @
+b11111101110010000 ?
+b11111101111100111 >
+b10001011101011 =
+b11011111111101110010 <
+b1111111111111111111111100010011001011001 ;
+b1111111111111111111111111100110001011100 :
+b11111101000100001 9
+b100000001111010011 8
+b1111011101010 7
+b100101101111100010 6
+b111011110000000 5
+b1111111111111111111111111100100110000011 4
+b11111101110101111 3
+b11111111010001100 2
+b10000111110010 1
+b100110000010100101 0
+b110101100010001 /
+b1111111111111111111111111100111111101110 .
+b11111110110100100110 -
+b101101011110100 ,
+b11111110110100100110 +
+b101101011110100 *
+b111111011100000 )
+b111101111011001 (
+b111111100001001 '
+b111101111011100 &
+b1111111011 %
+b111101111010001 $
+b111111011011111 #
+b111101111011101 "
+b111111100000101 !
+$end
+#10
