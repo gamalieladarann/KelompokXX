@@ -1,22 +1,16 @@
-module top_level (
-    input wire [8:0] X, // Input pixel, 9 bit
-    output wire signed [19:0] outputs[8:0] // Output dari sigmoid
-);
-    // Output modul mean
-    wire signed [19:0] C_out1, C_out2;
-    // Output modul var
-    wire signed [19:0] V_out1, V_out2;
-    // Output softplus
-    wire signed [19:0] S_out1, S_out2;
-    // Output dev
-    wire signed [19:0] D_out1, D_out2;
-    // Output neuron hidden
-    wire signed [19:0] N_hidden_out1, N_hidden_out2;
-    // Output neuron output layer
-    wire signed [19:0] N_out[8:0];
-    // Output setelah sigmoid
-    wire signed [19:0] sigmoid_out[8:0];
+`include "mean.v"
+`include "var.v"
+`include "dev.v"
+`include "sigmoid_8grad.v"
+`include "softplus_8grad.v"
+`include "neuron_hidden.v"
+`include "neuron_out.v"
 
+module top_level (
+    input [8:0] X, // Input pixel, 9 bit
+    output signed [19:0] outputs[8:0] // Output dari sigmoid
+    
+);
     // Weight dan Bias Mean
     parameter signed [19:0] weight2mean[17:0] = {
         20'shFFFF3, 20'shFFFA5, 20'shFFFF3, 20'shFFFD9, 20'sh0004E, 
@@ -52,6 +46,21 @@ module top_level (
         20'sh21DD0, 20'shFDA10, 20'sh222D7, 20'shFDCBE, 20'sh00CBD,
         20'shFD764, 20'sh21ADF, 20'shFDB31, 20'sh225A6
     };
+    // Output modul mean
+    wire signed [19:0] C_out1, C_out2;
+    // Output modul var
+    wire signed [19:0] V_out1, V_out2;
+    // Output softplus
+    wire signed [19:0] S_out1, S_out2;
+    // Output dev
+    wire signed [19:0] D_out1, D_out2;
+    // Output neuron hidden
+    wire signed [19:0] N_hidden_out1, N_hidden_out2;
+    // Output neuron output layer
+    wire signed [19:0] N_out[8:0];
+    // Output setelah sigmoid
+    wire signed [19:0] sigmoid_out[8:0];
+
 
     // Mean module instances
     mean mean1 (
@@ -119,15 +128,15 @@ module top_level (
 
     // Reparameterization trick (hidden neuron)
     neuron_hidden hidden1 (
-        .mean(C_out1),
-        .dev(D_out1),
-        .a2(N_hidden_out1)
+        .C_out(C_out1),
+        .D_out(D_out1),
+        .N1_out(N_hidden_out1)
     );
 
     neuron_hidden hidden2 (
-        .mean(C_out2),
-        .dev(D_out2),
-        .a2(N_hidden_out2)
+        .C_out(C_out2),
+        .D_out(D_out2),
+        .N1_out(N_hidden_out2)
     );
 
 
@@ -136,18 +145,18 @@ module top_level (
     generate
         for (i = 0; i < 9; i = i + 1) begin : output_loop
             neuron_out n_out (
-                .a2_1(N_hidden_out1),
-                .a2_2(N_hidden_out2),
-                .weight3_1(weight3_1[i]), 
-                .weight3_2(weight3_2[i]), 
-                .bias3(bias3[i]),
-                .z3(N_out[i])
+                .N1_1(N_hidden_out1),
+                .N2_2(N_hidden_out2),
+                .Wn_1(weight3_1[i]), 
+                .Wn_2(weight3_2[i]), 
+                .B_neuron(bias3[i]),
+                .N2_out(N_out[i])
             );
 
             // Sigmoid Activation
             sigmoid sig (
-                .in(N_out[i]),
-                .out(sigmoid_out[i])
+                .x_in(N_out[i]),
+                .y_out(sigmoid_out[i])
             );
 
             // Assign final output
