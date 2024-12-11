@@ -9,6 +9,7 @@
 
 module top_level(
     input wire clk,
+    input wire reset,
     input wire [8:0] X,
     
     output wire signed [19:0] Y_0, Y_1, Y_2, Y_3, Y_4, Y_5, Y_6, Y_7, Y_8
@@ -52,6 +53,7 @@ module top_level(
 
         epsilon E0(
             .clk(clk),
+            .reset(reset),
             .D_out(D0_out),
 
             .E_out(E0_out)
@@ -101,6 +103,7 @@ module top_level(
 
         epsilon E1(
             .clk(clk),
+            .reset(reset),
             .D_out(D1_out),
 
             .E_out(E1_out)
