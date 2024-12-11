@@ -2,11 +2,13 @@
 `include "var.v"
 `include "softplus.v"
 `include "dev.v"
+`include "epsilon.v"
 `include "neuron_hidden.v"
 `include "neuron_out.v"
 `include "sigmoid.v"
 
 module top_level(
+    input wire clk,
     input wire [8:0] X,
     
     output wire signed [19:0] Y_0, Y_1, Y_2, Y_3, Y_4, Y_5, Y_6, Y_7, Y_8
@@ -19,6 +21,7 @@ module top_level(
         wire signed [19:0] V0_out;
         wire signed [19:0] SP0_out;
         wire signed [19:0] D0_out;
+        wire signed [19:0] E0_out;
         wire signed [19:0] N10_out;
 
         mean C0(
@@ -47,9 +50,16 @@ module top_level(
             .D_out(D0_out)
         );
 
+        epsilon E0(
+            .clk(clk),
+            .D_out(D0_out),
+
+            .E_out(E0_out)
+        );
+
         neuron_hidden N10(
             .C_out(C0_out),
-            .D_out(D0_out),
+            .E_out(E0_out),
 
             .N1_out(N10_out)
         );
@@ -60,6 +70,7 @@ module top_level(
         wire signed [19:0] V1_out;
         wire signed [19:0] SP1_out;
         wire signed [19:0] D1_out;
+        wire signed [19:0] E1_out;
         wire signed [19:0] N11_out;
 
         mean C1(
@@ -88,9 +99,16 @@ module top_level(
             .D_out(D1_out)
         );
 
+        epsilon E1(
+            .clk(clk),
+            .D_out(D1_out),
+
+            .E_out(E1_out)
+        );
+
         neuron_hidden N11(
             .C_out(C1_out),
-            .D_out(D1_out),
+            .E_out(E1_out),
 
             .N1_out(N11_out)
         );
