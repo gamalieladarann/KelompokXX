@@ -16,13 +16,13 @@ module dev_tb;
         $dumpfile("dev_tb.vcd");
         $dumpvars(0, dev_tb);
 
-        INPUT = 20'shF8000;
+        INPUT = 20'sh00000;
 
         #7;
 
-        repeat(72)
+        repeat(96)
         begin
-            INPUT += 20'sh1000;
+            INPUT += 20'sh00001;
             #7;
         end
     end
