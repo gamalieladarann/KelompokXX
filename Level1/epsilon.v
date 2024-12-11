@@ -6,7 +6,7 @@ module epsilon(
     output wire signed [19:0] E_out   // Output from epsilon module
 );
 
-    reg signed [19:0] epsilon; // Pseudorandomly-generated number
+    reg signed [19:0] epsilon; // Pseudo randomly-generated number
     wire feedback;
 
     assign feedback = epsilon[14] ^ !epsilon[9] ^ epsilon[5] ^ !epsilon[2] ^ epsilon[0] ^ !D_out[1] ^ D_out[4] ^ !D_out[8] ^ D_out[13];
