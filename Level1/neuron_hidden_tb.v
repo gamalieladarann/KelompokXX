@@ -1,24 +1,24 @@
 `include "neuron_hidden.v"
 
 module neuron_hidden_tb();
-    reg signed [19:0] mean;
-    reg signed [19:0] dev;
+    reg signed [19:0] C_out;
+    reg signed [19:0] E_out;
 
-    wire signed [19:0] a2;
+    wire signed [19:0] N0_out;
 
     neuron_hidden dut(
-        .mean(mean),
-        .dev(dev),
+        .C_out(C_out),
+        .E_out(E_out),
 
-        .a2(a2)
+        .N0_out(N0_out)
     );
 
     initial begin
         $dumpfile("neuron_hidden_tb.vcd");
         $dumpvars(0, neuron_hidden_tb);
 
-        mean = 20'sh04200;
-        dev = 20'sh04100;
+        C_out = 20'sh04200;
+        E_out = 20'sh04100;
         #10;    
         
         $finish;
