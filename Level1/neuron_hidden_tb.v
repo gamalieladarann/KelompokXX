@@ -10,7 +10,7 @@ module neuron_hidden_tb();
         .C_out(C_out),
         .E_out(E_out),
 
-        .N0_out(N0_out)
+        .N1_out(N1_out)
     );
 
     initial begin
