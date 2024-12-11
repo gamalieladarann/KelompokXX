@@ -1,10 +1,10 @@
 module neuron_hidden(
-    input signed wire [19:0] C_out, // Input from mean module
-    input signed wire [19:0] D_out, // Input from dev module
+    input wire signed [19:0] C_out, // Input from mean module
+    input wire signed [19:0] E_out, // Input from epsilon module
 
-    output signed wire [19:0] N1_out
+    output wire signed [19:0] N1_out
 );
 
-    assign N1_out = C_out + D_out;
+    assign N1_out = C_out + E_out;
 
 endmodule
